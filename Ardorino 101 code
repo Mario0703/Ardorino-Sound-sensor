@@ -1,0 +1,37 @@
+const int led = 6;
+const int sound = 7;
+
+int soundstate = 0;
+int soundthing = 0;
+int soundval = 0;
+
+void setup() {
+  
+ 
+  pinMode(led, OUTPUT);
+  pinMode(sound, INPUT);
+  Serial.begin(9600);
+}
+
+
+void loop() {
+  soundstate = digitalRead(sound);
+  soundval = analogRead(sound);
+
+  if(soundstate == HIGH)
+    {
+  digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(175);                // wait 
+  digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
+  delay(175);                // wait
+
+
+    }
+  else
+    {
+      digitalWrite(led,LOW);     //LED is off
+    }
+
+   Serial.println(soundval);  //print the sound
+    
+  }
